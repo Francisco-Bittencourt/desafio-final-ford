@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/desafio-sprint7-angular",
+            "outputPath": "dist/desafio-final-ford",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
