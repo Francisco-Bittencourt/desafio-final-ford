@@ -1,0 +1,49 @@
+
+.sidebar {
+  min-width: 200px;
+  width: 250px;
+}
+
+
+.fab-menu-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 15px;
+  z-index: 1050;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.fab-menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.fab-menu-button .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.offcanvas {
+  background-color: #f8f9fa; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+.offcanvas .offcanvas-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+}
+
+
+a[style*="cursor: pointer;"] {
+  cursor: pointer;
+}

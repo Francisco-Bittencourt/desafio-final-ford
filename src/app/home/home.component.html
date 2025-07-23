@@ -1,0 +1,35 @@
+<div class="d-flex flex-column min-vh-100 bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+      <div class="navbar-brand">
+        <img src="/img/ford.png" alt="Logo da Ford" style="height: 30px;" class="me-2">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button class="btn btn-danger ms-2" (click)="logout()">Sair</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center p-4">
+    <div class="text-center">
+      <h1 class="display-4 text-primary mb-3">Bem-vindo(a), {{ userName }}!</h1>
+      <p class="lead text-muted">Esta é a sua página inicial da Ford.</p>
+      <br>
+      <div class="mt-4">
+        <button class="btn btn-primary btn-lg me-2" routerLink="/dashboard">Ir para o Dashboard</button>
+        <button class="btn btn-secondary btn-lg" routerLink="/test-drive">Agendar Test Drive</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; {{ currentYear }} Ford. Todos os direitos reservados.</p>
+  </footer>
+</div>
