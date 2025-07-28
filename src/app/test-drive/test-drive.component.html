@@ -18,8 +18,8 @@
   </nav>
 
   <button class="fab-menu-button" type="button" 
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" 
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" 
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -81,6 +81,7 @@
                 id="vehicle"
                 formControlName="vehicle"
                 class="form-select"
+                (change)="onVehicleSelect($event)"
               >
                 <option value="">Selecione um veículo</option>
                 <option *ngFor="let vehicle of vehicles" [value]="vehicle.vehicle">{{ vehicle.vehicle }}</option>
@@ -133,6 +134,11 @@
           </button>
         </div>
       </form>
+
+      <!-- Nova seção para exibir a imagem do carro selecionado -->
+      <div *ngIf="selectedVehicleImage" class="selected-car-image-container mt-4 text-center">
+        <img [src]="selectedVehicleImage" alt="Veículo Selecionado" class="img-fluid selected-car-image">
+      </div>
 
       <div *ngIf="showSuccessMessage" class="alert alert-success text-center mt-4" role="alert" style="position: relative; z-index: 1000; font-size: 1.2em; font-weight: bold;">
         Olá, {{ bookedName }}! Seu Test-Drive foi agendado com sucesso para {{ bookedDate }} às {{ bookedTime }}! Entraremos em contato em breve.

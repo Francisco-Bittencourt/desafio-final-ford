@@ -1,4 +1,3 @@
-
 .sidebar {
   min-width: 200px;
   width: 250px;
@@ -35,15 +34,40 @@
 }
 
 .offcanvas {
-  background-color: #f8f9fa; 
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+  background-color: #f8f9fa;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .offcanvas .offcanvas-header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 
 a[style*="cursor: pointer;"] {
   cursor: pointer;
+}
+
+/* Novos estilos para a imagem do carro selecionado */
+.selected-car-image-container {
+    margin-top: 20px; /* Espaçamento acima da imagem */
+    text-align: center; /* Centraliza a imagem */
+}
+
+.selected-car-image {
+    max-width: 80%; /* Garante que a imagem seja responsiva */
+    height: auto; /* Mantém a proporção */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out; /* Transição suave ao carregar */
+}
+
+.selected-car-image:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    .selected-car-image {
+        max-width: 95%; /* Aumenta o tamanho da imagem para ocupar mais espaço em telas menores */
+    }
 }

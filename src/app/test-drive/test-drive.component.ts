@@ -1,10 +1,9 @@
-
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
-import { Veiculo } from '../models/veiculo.model';
+import { Veiculo } from '../models/veiculo.model'; // Certifique-se de que Veiculo tem uma propriedade 'img'
 
 @Component({
   selector: 'app-test-drive',
@@ -24,13 +23,13 @@ export class TestDriveComponent implements OnInit, OnDestroy {
   bookedName: string = '';
   bookedTime: string = '';
   bookedDate: string = '';
+  selectedVehicleImage: string | null = null; // Nova propriedade para a imagem do veículo selecionado
 
   constructor(
     private router: Router,
     private dashboardService: DashboardService,
     private cdr: ChangeDetectorRef
   ) {
-    
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const year = tomorrow.getFullYear();
@@ -61,7 +60,7 @@ export class TestDriveComponent implements OnInit, OnDestroy {
         return null; 
       }
       const selectedDateString = control.value; 
-     
+      
       if (selectedDateString < this.minSelectableDate) {
         return { 'dateBeforeTomorrow': true };
       }
@@ -104,11 +103,22 @@ export class TestDriveComponent implements OnInit, OnDestroy {
       });
   }
 
+  // Novo método para lidar com a seleção de veículo e atualizar a imagem
+  onVehicleSelect(event: Event): void {
+    const selectedVehicleName = (event.target as HTMLSelectElement).value;
+    const selectedVehicle = this.vehicles.find(v => v.vehicle === selectedVehicleName);
+    if (selectedVehicle) {
+      this.selectedVehicleImage = selectedVehicle.img; // Assume que 'Veiculo' tem uma propriedade 'img'
+    } else {
+      this.selectedVehicleImage = null;
+    }
+    this.cdr.detectChanges(); // Força a detecção de mudanças para atualizar a view
+  }
+
   onSubmit(): void {
     this.formSubmitted = true;
     this.showSuccessMessage = false;
     this.cdr.detectChanges();
-
 
     Object.keys(this.testDriveForm.controls).forEach(key => {
       const control = this.testDriveForm.get(key);
@@ -126,7 +136,7 @@ export class TestDriveComponent implements OnInit, OnDestroy {
       console.log('Formulário de Test-Drive enviado com sucesso!', this.testDriveForm.value);
 
       this.testDriveForm.reset();
-   
+      this.selectedVehicleImage = null; // Limpa a imagem após o envio bem-sucedido
       this.formSubmitted = false;
       this.cdr.detectChanges();
     } else {
