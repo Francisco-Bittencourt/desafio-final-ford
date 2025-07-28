@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Ford</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEj<br>y5Zq9zAX+0J4u71fI9mFfK5B/S3p0C4ZtNlE5eH0gX7T7bFq5S7D7fG7d+<br>A" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjY5Zq9zAX+0J4u71fI9mFfK5B/S3p0C4ZtNlE5eH0gX7T7bFq5S7D7fG7d+A" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
     <style>
@@ -16,9 +16,25 @@
             /* justify-content: flex-end; -- Removido para seguir o layout do Bootstrap */
         }
 
-        /* IMAGEM DO CARRO */
-        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white img {
-            max-width: 600px;
+        /* IMAGEM DO CARRO - Estilos para o carrossel */
+        /* Ajusta o contêiner do carrossel para centralizar e limitar a largura */
+        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white .carousel {
+            max-width: 600px; /* Limita a largura máxima do carrossel */
+            width: 100%; /* Garante que o carrossel ocupe a largura disponível até o max-width */
+        }
+
+        /* Estilos para as imagens dentro do carrossel */
+        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white .carousel-item img {
+            width: 100%; /* Garante que a imagem preencha o item do carrossel */
+            height: auto; /* Mantém a proporção da imagem */
+            /* Removido: border-radius: 0.5rem; */ /* Removido para tirar as bordas arredondadas */
+            /* Removido: box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* Removido para tirar a sombra */
+        }
+
+        /* Oculta as setas de navegação do carrossel */
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
         }
 
         /* Melhorias para o ícone do revelador de senha (do CSS que você já tinha) */
@@ -78,7 +94,11 @@
                 box-shadow: none;
             }
 
-            .d-none.d-lg-flex.col-lg-8,
+            /* Oculta a seção do carrossel em telas menores que 1024px */
+            .d-none.d-lg-flex.col-lg-8 {
+                display: none !important;
+            }
+
             .terceira { /* A classe .terceira não está no seu HTML atual, mas mantive do CSS original */
                 display: none;
             }
@@ -94,10 +114,42 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-lg-row min-vh-100 bg-white">
+        <!-- Seção da Imagem/Carrossel (oculta em telas pequenas) -->
         <div class="d-none d-lg-flex col-lg-8 justify-content-center align-items-center p-3 p-xl-5 bg-white">
-            <img src="/img/ranger.png" alt="Imagem da Ford Ranger" class="img-fluid" style="max-width: 600px;" />
+            <!-- Carrossel Bootstrap para os 4 carros -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/ranger.png" class="d-block w-100" alt="Ford Ranger">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/mustang.png" class="d-block w-100" alt="Ford Mustang">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/territory.png" class="d-block w-100" alt="Ford Territory">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/broncoSport.png" class="d-block w-100" alt="Ford Bronco Sport">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
 
+        <!-- Seção do Formulário de Login -->
         <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center bg-white p-4 p-md-5 shadow-lg">
             <div class="w-100" style="max-width: 350px;">
                 <div class="text-center mb-4">
@@ -170,6 +222,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcO4e9Y9E5fW3C5hG7d+<br>A" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcO4e9Y9E5fW3C5hG7d+A" crossorigin="anonymous"></script>
 </body>
 </html>
