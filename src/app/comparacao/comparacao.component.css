@@ -22,7 +22,7 @@ body {
   text-align: center;
   width: 280px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .photocar {
@@ -39,8 +39,7 @@ body {
 }
 
 .checkbox {
-  
-  transform: scale(1.5); 
+  transform: scale(1.5);
 }
 
 .info {
@@ -60,7 +59,7 @@ body {
   margin-top: 5px;
 }
 
-/* Modal de Comparação */
+/* Modal de Comparação - Cores Ford */
 #compare {
   position: fixed;
   top: 50%;
@@ -68,8 +67,8 @@ body {
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 900px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
+  background-color: rgba(0, 51, 102, 0.95); /* Azul escuro da Ford com transparência */
+  color: white; /* Texto branco para contraste */
   padding: 20px;
   box-sizing: border-box;
   overflow-y: hidden;
@@ -89,7 +88,7 @@ body {
 
 #compare th,
 #compare td {
-  border: 1px solid #555;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas mais claras para a tabela */
   padding: 5px;
   vertical-align: top;
   font-size: 0.8em;
