@@ -7,39 +7,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjY5Zq9zAX+0J4u71fI9mFfK5B/S3p0C4ZtNlE5eH0gX7T7bFq5S7D7fG7d+A" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
+    <!-- O CSS está em um arquivo separado ou será fornecido em outro bloco -->
     <style>
         /* DIV PRINCIPAL */
         .d-flex.flex-column.flex-lg-row.min-vh-100.bg-white {
             display: flex;
             height: 100vh; /* min-vh-100 já faz isso, mas aqui para clareza */
             width: 100%;
-            /* justify-content: flex-end; -- Removido para seguir o layout do Bootstrap */
         }
 
-        /* IMAGEM DO CARRO - Estilos para o carrossel */
-        /* Ajusta o contêiner do carrossel para centralizar e limitar a largura */
-        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white .carousel {
-            max-width: 600px; /* Limita a largura máxima do carrossel */
-            width: 100%; /* Garante que o carrossel ocupe a largura disponível até o max-width */
-        }
-
-        /* Estilos para as imagens dentro do carrossel */
-        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white .carousel-item img {
+        /* Estilos para as imagens dentro de QUALQUER carrossel */
+        .carousel-item img {
             width: 100%; /* Garante que a imagem preencha o item do carrossel */
             height: auto; /* Mantém a proporção da imagem */
-            /* Removido: border-radius: 0.5rem; */ /* Removido para tirar as bordas arredondadas */
-            /* Removido: box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* Removido para tirar a sombra */
+            /* Sem bordas ou sombras nas imagens do carrossel, conforme solicitado */
         }
 
-        /* Oculta as setas de navegação do carrossel */
+        /* Estilos específicos para o contêiner do carrossel desktop */
+        .d-none.d-lg-flex.col-lg-8.justify-content-center.align-items-center.p-3.p-xl-5.bg-white .carousel {
+            max-width: 600px; /* Limita a largura máxima do carrossel desktop */
+            width: 100%;
+        }
+
+        /* Estilos para o contêiner do carrossel mobile */
+        .mobile-carousel-parent {
+            margin-bottom: 20px; /* Espaço abaixo do carrossel mobile */
+        }
+
+        /* Oculta as setas de navegação do carrossel (para ambos, desktop e mobile) */
         .carousel-control-prev,
         .carousel-control-next {
             display: none;
         }
 
-        /* Melhorias para o ícone do revelador de senha (do CSS que você já tinha) */
+        /* Melhorias para o ícone do revelador de senha */
         .input-group > .form-control + .btn {
-            border-left: none; /* Remove a borda esquerda do botão para juntar no input */
+            border-left: none;
         }
 
         .input-group .btn {
@@ -47,11 +50,11 @@
             align-items: center;
             justify-content: center;
             padding: 0.5rem 0.75rem;
-            height: calc(2.875rem + 2px); /* Alinha com form-control-lg */
+            height: calc(2.875rem + 2px);
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border: 1px solid #ced4da; /* Adiciona uma borda sutil cinza */
-            background-color: #e9ecef; /* Um cinza claro para o fundo do botão */
+            border: 1px solid #ced4da;
+            background-color: #e9ecef;
         }
 
         .input-group .btn i {
@@ -71,10 +74,10 @@
         }
 
         .input-group .form-control-lg {
-            height: calc(2.875rem + 2px); /* Força a altura para bater com o botão */
+            height: calc(2.875rem + 2px);
         }
 
-        /* Media queries para responsividade (do CSS que você já tinha) */
+        /* Media queries para responsividade */
         @media (max-width: 1024px) {
             .min-vh-100 {
                 flex-direction: column;
@@ -93,15 +96,6 @@
                 background-color: #f5f5f5;
                 box-shadow: none;
             }
-
-            /* Oculta a seção do carrossel em telas menores que 1024px */
-            .d-none.d-lg-flex.col-lg-8 {
-                display: none !important;
-            }
-
-            .terceira { /* A classe .terceira não está no seu HTML atual, mas mantive do CSS original */
-                display: none;
-            }
         }
 
         @media (max-width: 600px) {
@@ -114,9 +108,8 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-lg-row min-vh-100 bg-white">
-        <!-- Seção da Imagem/Carrossel (oculta em telas pequenas) -->
+        <!-- Carrossel Desktop (visível apenas em telas maiores que lg) -->
         <div class="d-none d-lg-flex col-lg-8 justify-content-center align-items-center p-3 p-xl-5 bg-white">
-            <!-- Carrossel Bootstrap para os 4 carros -->
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -138,14 +131,34 @@
                         <img src="/img/broncoSport.png" class="d-block w-100" alt="Ford Bronco Sport">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <!-- Controles do carrossel são ocultados via CSS global -->
+            </div>
+        </div>
+
+        <!-- Carrossel Mobile (visível apenas em telas menores que lg) -->
+        <div class="d-block d-lg-none col-12 p-3 bg-white d-flex justify-content-center align-items-center mobile-carousel-parent">
+            <div id="carouselExampleIndicatorsMobile" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/ranger.png" class="d-block w-100" alt="Ford Ranger">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/mustang.png" class="d-block w-100" alt="Ford Mustang">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/territory.png" class="d-block w-100" alt="Ford Territory">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/broncoSport.png" class="d-block w-100" alt="Ford Bronco Sport">
+                    </div>
+                </div>
+                <!-- Controles do carrossel são ocultados via CSS global -->
             </div>
         </div>
 

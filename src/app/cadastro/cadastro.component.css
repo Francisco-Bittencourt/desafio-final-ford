@@ -1,58 +1,57 @@
-/* cadastro.component.css */
+
 
 .card {
     border-radius: 10px;
 }
 
-/* Estilos para a página de cadastro para adicionar um fundo mais "vivo" */
-/* Aplicado ao contêiner principal que envolve o card do formulário */
+
 .d-flex.justify-content-center.align-items-center.min-vh-100.bg-light {
-    /* Remove o background padrão do Bootstrap para aplicar o nosso */
+ 
     background-color: transparent !important;
 
-    /* Adiciona múltiplas imagens de fundo com um overlay para legibilidade */
+ 
     background-image:
-        linear-gradient(rgba(245, 245, 245, 0.80), rgba(245, 245, 245, 0.80)), /* Overlay ligeiramente menos opaco (0.80) */
+        linear-gradient(rgba(245, 245, 245, 0.80), rgba(245, 245, 245, 0.80)),
         url('/img/ranger.png'),
         url('/img/mustang.png'),
         url('/img/territory.png'),
         url('/img/broncoSport.png');
 
-    /* Posição de cada imagem de fundo */
+  
     background-position:
-        center center, /* Para o gradiente */
-        top 8% left 8%,     /* Ranger (ligeiramente mais para dentro) */
-        top 8% right 8%,    /* Mustang (ligeiramente mais para dentro) */
-        bottom 8% left 8%,  /* Territory (ligeiramente mais para dentro) */
-        bottom 8% right 8%; /* Bronco Sport (ligeiramente mais para dentro) */
+        center center,
+        top 8% left 8%,     
+        top 8% right 8%,   
+        bottom 8% left 8%,  
+        bottom 8% right 8%; 
 
-    /* Tamanho de cada imagem de fundo */
+    
     background-size:
-        cover,      /* Para o gradiente */
-        25% auto,   /* Ranger (aumentado para 25%) */
-        25% auto,   /* Mustang (aumentado para 25%) */
-        25% auto,   /* Territory (aumentado para 25%) */
-        25% auto;   /* Bronco Sport (aumentado para 25%) */
+        cover,      
+        25% auto,   
+        25% auto,   
+        25% auto,   
+        25% auto; 
 
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Efeito parallax */
+    background-attachment: fixed;
 }
 
-/* Garante que o card do formulário permaneça opaco e visível */
+
 .card.p-5.shadow-sm {
-    background-color: #ffffff; /* Fundo branco para o card */
-    z-index: 1; /* Garante que o card esteja acima do fundo */
-    position: relative; /* Necessário para z-index funcionar */
+    background-color: #ffffff; 
+    z-index: 1; 
+    position: relative; 
 }
 
-/* Media query para telas menores: simplifica o fundo para evitar sobrecarga visual */
+
 @media (max-width: 768px) {
     .d-flex.justify-content-center.align-items-center.min-vh-100.bg-light {
         background-image:
-            linear-gradient(rgba(245, 245, 245, 0.90), rgba(245, 245, 245, 0.90)), /* Overlay mais forte para mobile (0.90) */
-            url('/img/ranger.png'); /* Apenas uma imagem para mobile */
+            linear-gradient(rgba(245, 245, 245, 0.90), rgba(245, 245, 245, 0.90)), 
+            url('/img/ranger.png');
         background-position: center center;
         background-size: cover;
-        background-attachment: scroll; /* Remove o parallax em mobile */
+        background-attachment: scroll; 
     }
 }

@@ -59,7 +59,6 @@ body {
   margin-top: 5px;
 }
 
-/* Modal de Comparação - Cores Ford */
 #compare {
   position: fixed;
   top: 50%;
@@ -67,8 +66,8 @@ body {
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 900px;
-  background-color: rgba(0, 51, 102, 0.95); /* Azul escuro da Ford com transparência */
-  color: white; /* Texto branco para contraste */
+  background-color: rgba(0, 51, 102, 0.95); 
+  color: white; 
   padding: 20px;
   box-sizing: border-box;
   overflow-y: hidden;
@@ -88,7 +87,7 @@ body {
 
 #compare th,
 #compare td {
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas mais claras para a tabela */
+  border: 1px solid rgba(255, 255, 255, 0.3); 
   padding: 5px;
   vertical-align: top;
   font-size: 0.8em;
@@ -136,7 +135,7 @@ footer {
   height: 30px;
 }
 
-/* Estilo para fundo desfocado */
+
 .blurred-background {
   filter: blur(5px);
   transition: filter 0.3s ease;

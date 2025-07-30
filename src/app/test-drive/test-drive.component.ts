@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, Valid
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
-import { Veiculo } from '../models/veiculo.model'; // Certifique-se de que Veiculo tem uma propriedade 'img'
+import { Veiculo } from '../models/veiculo.model'; 
 
 @Component({
   selector: 'app-test-drive',
@@ -23,7 +23,7 @@ export class TestDriveComponent implements OnInit, OnDestroy {
   bookedName: string = '';
   bookedTime: string = '';
   bookedDate: string = '';
-  selectedVehicleImage: string | null = null; // Nova propriedade para a imagem do veículo selecionado
+  selectedVehicleImage: string | null = null; 
 
   constructor(
     private router: Router,
@@ -103,16 +103,16 @@ export class TestDriveComponent implements OnInit, OnDestroy {
       });
   }
 
-  // Novo método para lidar com a seleção de veículo e atualizar a imagem
+ 
   onVehicleSelect(event: Event): void {
     const selectedVehicleName = (event.target as HTMLSelectElement).value;
     const selectedVehicle = this.vehicles.find(v => v.vehicle === selectedVehicleName);
     if (selectedVehicle) {
-      this.selectedVehicleImage = selectedVehicle.img; // Assume que 'Veiculo' tem uma propriedade 'img'
+      this.selectedVehicleImage = selectedVehicle.img; 
     } else {
       this.selectedVehicleImage = null;
     }
-    this.cdr.detectChanges(); // Força a detecção de mudanças para atualizar a view
+    this.cdr.detectChanges(); 
   }
 
   onSubmit(): void {
@@ -136,7 +136,7 @@ export class TestDriveComponent implements OnInit, OnDestroy {
       console.log('Formulário de Test-Drive enviado com sucesso!', this.testDriveForm.value);
 
       this.testDriveForm.reset();
-      this.selectedVehicleImage = null; // Limpa a imagem após o envio bem-sucedido
+      this.selectedVehicleImage = null;
       this.formSubmitted = false;
       this.cdr.detectChanges();
     } else {
